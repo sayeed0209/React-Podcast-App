@@ -35,3 +35,22 @@ code {
     margin-left: auto !important;
   }
 }
+
+.article-link,
+.track-link {
+  text-decoration: none;
+  color: #000000;
+  display: block !important;
+}
+
+.tracks {
+  font-size: 10px !important;
+}
+
+.tracks:nth-of-type(even) {
+  background-color: #0000000d;
+}
+
+.shadow {
+  border-radius: 0.25rem;
+}

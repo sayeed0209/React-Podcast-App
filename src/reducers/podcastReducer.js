@@ -26,6 +26,25 @@ export const podcastReducer = (state, action) => {
     case GET_PODCAST_ERROR:
       return { ...state, isLoading_podcast: false, podcast_error: true };
     // * all podcast case end here
+    // * Loading products and  Filter products case starts here
+    case UPDATE_FILTERS:
+      const { name, value } = action.payload;
+      return { ...state, [name]: value };
+
+    // * Loading products and  Filter products case starts here
+    case LOAD_PODCAST:
+      return { ...state, filtered_podcast: [...action.payload] };
+    case FILTER_PODCAST:
+      const { podcast_data, searchTerm, searchParam } = state;
+      let tempPodcast = [...podcast_data];
+      if (searchTerm) {
+        tempPodcast = tempPodcast.filter((podcast) => {
+          return searchParam.some((key) => {
+            return podcast[key].toString().toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+          });
+        });
+      }
+      return { ...state, filtered_podcast: tempPodcast };
     default:
       return state;
     // throw new Error(`No Matching "${action.type}" - action type`);

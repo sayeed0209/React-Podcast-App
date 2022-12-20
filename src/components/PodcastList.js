@@ -8,7 +8,7 @@ const PodcastList = () => {
   const {
     isLoading_podcast: loading,
     podcast_error: error,
-    podcast_data: podcast,
+    filtered_podcast: podcast,
   } = usePodcastContext();
   if (loading) {
     return <LoadingSpinner />;

@@ -11,7 +11,6 @@ import {
   UPDATE_FILTERS,
   LOAD_PODCAST,
   FILTER_PODCAST,
-  CLEAR_FILTERS,
   API_URL,
 } from "../utils/action.js";
 import { createCookie, getCookiesValue } from "../utils/helper";
@@ -40,7 +39,6 @@ export const PodcastProvider = ({ children }) => {
         },
       });
       const { data } = response;
-      console.log(data);
       const podcastResponses = data.feed.entry.map((podcast) => {
         return {
           id: podcast.id.attributes["im:id"],
@@ -58,7 +56,10 @@ export const PodcastProvider = ({ children }) => {
       dispatch({ type: GET_PODCAST_ERROR });
     }
   };
-
+  const handleFilter = (e) => {
+    const { name, value } = e.target;
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
   //!USE EFFECTS
   useEffect(() => {
     const cookieStr = getCookiesValue("podcast");
@@ -72,10 +73,17 @@ export const PodcastProvider = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    dispatch({ type: LOAD_PODCAST, payload: state.podcast_data });
+  }, [state.podcast_data]);
+  useEffect(() => {
+    dispatch({ type: FILTER_PODCAST });
+  }, [state.searchTerm, state.podcast_data]);
   return (
     <PodcastContext.Provider
       value={{
         ...state,
+        handleFilter,
       }}
     >
       {children}

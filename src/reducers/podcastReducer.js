@@ -8,7 +8,6 @@ import {
   UPDATE_FILTERS,
   LOAD_PODCAST,
   FILTER_PODCAST,
-  CLEAR_FILTERS,
 } from "../utils/action.js";
 export const podcastReducer = (state, action) => {
   switch (action.type) {
@@ -45,6 +44,19 @@ export const podcastReducer = (state, action) => {
         });
       }
       return { ...state, filtered_podcast: tempPodcast };
+    // * single podcast case starts
+    case GET_SINGLE_PODCAST_BEGIN:
+      return { ...state, single_podcast_loading: true };
+    case GET_SINGLE_PODCAST_SUCCESS:
+      return {
+        ...state,
+        single_podcast_loading: false,
+        single_podcast_track_data: action.payload,
+      };
+    case GET_SINGLE_PODCAST_ERROR:
+      return { ...state, single_podcast_loading: false, single_podcast_error: true };
+
+    // * single podcast case ends her
     default:
       return state;
     // throw new Error(`No Matching "${action.type}" - action type`);

@@ -13,7 +13,7 @@ import {
   FILTER_PODCAST,
   API_URL,
 } from "../utils/action.js";
-import { createCookie, getCookiesValue } from "../utils/helper";
+import { createCookie, getCookiesValue, objectToArray, convertMsToTime } from "../utils/helper";
 const initialState = {
   isLoading_podcast: false,
   podcast_error: false,
@@ -60,6 +60,43 @@ export const PodcastProvider = ({ children }) => {
     const { name, value } = e.target;
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
+
+  //   !SINGLE PODCAST
+  const fetchSinglePodcast = async (url, id) => {
+    dispatch({ type: GET_SINGLE_PODCAST_BEGIN });
+    try {
+      const res = await axios(url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(res);
+      const [, ...restOfTheTracks] = [...res.data.results];
+      const tracksList = objectToArray(restOfTheTracks).map((track) => {
+        const duration = convertMsToTime(track.trackTimeMillis);
+        return {
+          collectionId: track.collectionId,
+          collectionName: track.collectionName,
+          description: track.description,
+          song: track.episodeUrl,
+          trackId: track.trackId,
+          trackName: track.trackName.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""),
+          duration,
+          trackImg: track.artworkUrl600,
+          releaseDate: track.releaseDate,
+        };
+      });
+      localStorage.setItem(id, JSON.stringify(tracksList));
+      createCookie(id, "singlePodcast", 86400000);
+      dispatch({
+        type: GET_SINGLE_PODCAST_SUCCESS,
+        payload: tracksList,
+      });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PODCAST_ERROR });
+    }
+  };
+
   //!USE EFFECTS
   useEffect(() => {
     const cookieStr = getCookiesValue("podcast");

@@ -14,7 +14,7 @@ import {
   CLEAR_FILTERS,
   API_URL,
 } from "../utils/action.js";
-import { createCookie } from "../utils/helper";
+import { createCookie, getCookiesValue } from "../utils/helper";
 const initialState = {
   isLoading_podcast: false,
   podcast_error: false,
@@ -58,6 +58,20 @@ export const PodcastProvider = ({ children }) => {
       dispatch({ type: GET_PODCAST_ERROR });
     }
   };
+
+  //!USE EFFECTS
+  useEffect(() => {
+    const cookieStr = getCookiesValue("podcast");
+    if (!cookieStr) {
+      fetchPodcast(API_URL);
+    } else {
+      dispatch({
+        type: GET_PODCAST_SUCCESS,
+        payload: JSON.parse(localStorage.getItem("podcastResponses")),
+      });
+    }
+  }, []);
+
   return (
     <PodcastContext.Provider
       value={{

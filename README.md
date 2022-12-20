@@ -6,7 +6,7 @@
 
 ### About the project
 
-![Home](src/assets/img/Main.png)
+![Home](src/assets/img/main.png)
 
 ![single podcast details](src/assets/img/single-podcast.png)
 ![single podcast episode](src/assets/img/single-episode.png)

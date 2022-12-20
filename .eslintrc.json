@@ -1,0 +1,30 @@
+{
+	"root": true,
+	"settings": {},
+	"env": {
+		"browser": true,
+		"amd": true,
+		"node": true,
+		"jest/globals": true,
+		"es2021": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"extends": ["react-app", "react-app/jest", "prettier"],
+
+	"plugins": ["react", "react-hooks", "testing-library", "jest"],
+	"rules": {
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"no-console": 1,
+		"no-unused-vars": 1,
+		"import/no-unresolved": 2,
+		"no-undefined": 2,
+		"react/jsx-uses-vars": 2,
+		"quotes": ["error", "double"]
+	}
+}

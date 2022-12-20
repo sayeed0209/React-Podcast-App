@@ -54,3 +54,7 @@ code {
 .shadow {
   border-radius: 0.25rem;
 }
+
+.link-info {
+  color: #ffff !important;
+}

@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+### <h2 style="text-align:center">React-Podcast-App</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p style="text-align:center">Podcast streaming site , podcast listing and single podcast detail page, listening the podcast which should be on an podcast site.</p>
+  
+- - -
 
-## Available Scripts
+### About the project
 
-In the project directory, you can run:
+![Home](src/assets/img/Main.png)
 
-### `npm start`
+![single podcast details](src/assets/img/single-podcast.png)
+![single podcast episode](src/assets/img/single-episode.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+An podcast site with basic view.You can view all the available podcast go to the detail page of the relevant podcast, you can listen the podcast you like from your favorite artist list.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project was developed in conjunction with React.js, including Context, Hooks, and Life Cycles Methods. Styled with styled components and bootstrap.
 
-### `npm test`
+### Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js
+- Bootstrap
+- Axios
+- External API
+- moment.js
+- styled components
 
-### `npm run build`
+### Getting started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- fork the project and clone it locally.
+- In the project directory, you can follow the steps below to download the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  `npm install `
 
-### `npm run eject`
+- In the project directory, you can run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  `npm run`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To view single podcast here what you need to do
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Visit the following link https://cors-anywhere.herokuapp.com/corsdemo
+and then to temporarily unlock access to the demo, click on the following button you will se on the site so that you can see all the details and listen your favorite podcast.
+![single podcast episode](src/assets/img/active-single-podcast.PNG)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can list the podcast by their title, artist additionally you can clear filter just with backspaces.You can listen your favorite podcast from my site.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Roadmap
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [x] Fetching podcast data, search podcast, single podcast.
+- [x] Responsive Design.
+- [x] single episode.
+- [ ] Complete the sign in and sign up process.
+- [ ] Add to favorites and favorites page.

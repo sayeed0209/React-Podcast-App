@@ -96,7 +96,12 @@ export const PodcastProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_PODCAST_ERROR });
     }
   };
-
+  const getAllTracksFromLocal = (tracks) => {
+    dispatch({
+      type: GET_SINGLE_PODCAST_SUCCESS,
+      payload: tracks,
+    });
+  };
   //!USE EFFECTS
   useEffect(() => {
     const cookieStr = getCookiesValue("podcast");
@@ -121,6 +126,8 @@ export const PodcastProvider = ({ children }) => {
       value={{
         ...state,
         handleFilter,
+        fetchSinglePodcast,
+        getAllTracksFromLocal,
       }}
     >
       {children}
